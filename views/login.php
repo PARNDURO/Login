@@ -8,7 +8,9 @@
     <h2>Iniciar Sesión</h2>
     <form id="loginForm">
         <input type="text" name="username" placeholder="Usuario" required><br>
+        <br>
         <input type="password" name="password" placeholder="Contraseña" required><br>
+        <br>
         <button type="submit">Entrar</button>
     </form>
     <div id="message" style="color: red;"></div>
