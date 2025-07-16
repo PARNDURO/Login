@@ -13,6 +13,6 @@ switch ($action) {
         $authController->logout();
         break;
     default:
-        header('Location: /views/login.php');
+        header('/Location: ../views/login.php');
         break;
 }
