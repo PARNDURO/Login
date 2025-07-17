@@ -3,18 +3,19 @@ $(document).ready(function () {
         e.preventDefault();
 
         $.ajax({
-            url: '/index.php?action=login',
+            url: '../public/index.php?action=login',
             method: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
             success: function (res) {
                 if (res.success) {
-                    window.location.href = '/views/dashboard.php';
+                    window.location.href = 'dashboard.php';
                 } else {
                     $('#message').text(res.message);
                 }
             },
-            error: function () {
+            error: function (xhr, status, error) {
+                console.error('Error AJAX:', xhr.responseText);
                 $('#message').text('Error en el servidor. Intenta más tarde.');
             }
         });

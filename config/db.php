@@ -13,9 +13,11 @@
                 $this->conn = new PDO ("mysql:host=$this->host;port=3307;dbname=$this->db_name", 
 $this->username, $this->password );
                 $this->conn->exec("set names utf8");
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             }catch(PDOException $exception) {
-                echo "Error de conexion a base de datos" . $exception->getMessage();
+                error_log("Error de conexion a base de datos: " . $exception->getMessage());
+                return null;
             }
             return $this->conn;
         }
