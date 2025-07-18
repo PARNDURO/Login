@@ -15,7 +15,7 @@ class User {
         }
         
         try {
-            $query = "SELECT * FROM users WHERE username = :username LIMIT 1";
+            $query = "SELECT id, username, password, nombre, apellido, create_at FROM users WHERE username = :username LIMIT 1";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":username", $username);
             $stmt->execute();
@@ -30,6 +30,42 @@ class User {
             return false;
         } catch (PDOException $e) {
             error_log("Error en autenticación: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function getUserProfile($userId) {
+        if (!$this->conn) {
+            return false;
+        }
+        
+        try {
+            $query = "SELECT id, username, nombre, apellido, edad FROM users WHERE id = :id LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":id", $userId);
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $user ?: false;
+        } catch (PDOException $e) {
+            error_log("Error al obtener perfil de usuario: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function getAllUsers() {
+        if (!$this->conn) {
+            return false;
+        }
+        
+        try {
+            $query = "SELECT id, username, nombre, apellido, edad FROM users";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Error al obtener usuarios: " . $e->getMessage());
             return false;
         }
     }

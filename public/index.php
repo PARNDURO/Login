@@ -12,6 +12,12 @@ switch ($action) {
     case 'logout':
         $authController->logout();
         break;
+    case 'getProfile':
+        $authController->getProfile();
+        break;
+    case 'getAllUsers':
+        $authController->getAllUsers();
+        break;
     default:
         header('Location: ../views/login.php');
         break;

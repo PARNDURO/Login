@@ -7,5 +7,8 @@ if (!isset($_SESSION['user'])) {
 }
 
 echo "<h1>Bienvenido, " . htmlspecialchars($_SESSION['user']['username']) . "</h1>";
-echo "<p>Nombre: " . htmlspecialchars($_SESSION['user']['nombre']) . "</p>";
-echo '<a href="/index.php?action=logout">Cerrar sesión</a>';
+
+echo '<div class="dashboard-links">';
+echo '<a href="profile.php">Ver Mi Perfil</a> | ';
+echo '<a href="../public/index.php?action=logout">Cerrar sesión</a>';
+echo '</div>';

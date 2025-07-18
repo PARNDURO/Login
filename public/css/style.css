@@ -82,3 +82,76 @@ form button:hover {
 .btn-crear:hover {
     background-color: rgb(91, 125, 121);
 }
+
+/* Estilos para el perfil */
+.profile-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.profile-card h2 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.profile-card p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.users-list {
+    margin: 20px 0;
+}
+
+.user-item {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+button#btn-close {
+    background-color: red;
+}
+
+.dashboard-links {
+    margin-top: 20px;
+}
+
+.dashboard-links a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+}
+
+.dashboard-links a:hover {
+    background-color: #007BFF;
+    color: white;
+}
