@@ -14,6 +14,9 @@
         <input type="password" name="password" placeholder="Contraseña" required><br>
         <br>
         <button type="submit">Entrar</button>
+        <button type="button" id="btn-register" onclick="window.location.href='../views/register.php'">Registrarse</button>
+        <!--<button type="button" >Forgotten password</button>-->
+<a href ="">forgot password</a>
     </form>
     <div id="message" style="color: red;"></div>
 

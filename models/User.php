@@ -69,4 +69,24 @@ class User {
             return false;
         }
     }
+
+    public function createUser($username, $password, $nombre, $apellido, $edad) {
+        if (!$this->conn) {
+            return false;
+        }
+        try {
+            $query = "INSERT INTO users (username, password, nombre, apellido, edad) VALUES (:username, :password, :nombre, :apellido, :edad)";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":username", $username);
+            $stmt->bindParam(":password", $password);
+            $stmt->bindParam(":nombre", $nombre);
+            $stmt->bindParam(":apellido", $apellido);
+            $stmt->bindParam(":edad", $edad);
+            
+            return $stmt->execute();
+        } catch (\Throwable $th) {
+           error_log("Error al crear usuario: " . $th->getMessage());
+           return false;
+        }
+    }
 }

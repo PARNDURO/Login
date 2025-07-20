@@ -86,4 +86,37 @@ class AuthController {
             echo json_encode(['success' => false, 'message' => 'Error en el servidor']);
         }
     }
+
+    public function submitRegister() {
+        session_start();
+        
+        header('Content-Type: application/json');
+        
+        // Obtener datos del formulario
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
+        $nombre = $_POST['nombre'] ?? '';
+        $apellido = $_POST['apellido'] ?? '';
+        $edad = $_POST['edad'] ?? '';
+
+        // Validar que todos los campos estén presentes
+        if (empty($username) || empty($password) || empty($nombre) || empty($apellido) || empty($edad)) {
+            echo json_encode(['success' => false, 'message' => 'Todos los campos son requeridos']);
+            return;
+        }
+
+        try {
+            $userModel = new User();
+            $result = $userModel->createUser($username, $password, $nombre, $apellido, $edad);
+            
+            if ($result) {
+                echo json_encode(['success' => true, 'message' => 'Usuario creado exitosamente']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Error al crear usuario']);
+            }
+        } catch (\Throwable $th) {
+           error_log("Error al crear usuario: " . $th->getMessage());
+           echo json_encode(['success' => false, 'message' => 'Error al crear usuario']);
+        }
+    }
 }

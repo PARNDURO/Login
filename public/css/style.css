@@ -138,6 +138,10 @@ button#btn-close {
     background-color: red;
 }
 
+button#btn-register{
+    background-color: #51d229;
+}
+
 .dashboard-links {
     margin-top: 20px;
 }

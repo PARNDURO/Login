@@ -18,6 +18,9 @@ switch ($action) {
     case 'getAllUsers':
         $authController->getAllUsers();
         break;
+    case 'submitRegister':
+        $authController->submitRegister();
+        break;
     default:
         header('Location: ../views/login.php');
         break;
