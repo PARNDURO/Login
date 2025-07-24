@@ -5,10 +5,18 @@ if (!isset($_SESSION['user'])) {
     header('Location: /views/login.php');
     exit;
 }
-
-echo "<h1>Bienvenido, " . htmlspecialchars($_SESSION['user']['username']) . "</h1>";
-
-echo '<div class="dashboard-links">';
-echo '<a href="profile.php">Ver Mi Perfil</a> | ';
-echo '<a href="../public/index.php?action=logout">Cerrar sesión</a>';
-echo '</div>';
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body id="body-dashboard">
+    <h1>Bienvenido, <?php echo htmlspecialchars($_SESSION['user']['username']); ?></h1>
+    <div class="dashboard-links">
+        <a href="profile.php">Ver Mi Perfil</a> |
+        <a href="../public/index.php?action=logout">Cerrar sesión</a>
+    </div>
+</body>
+</html>

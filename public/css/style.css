@@ -1,3 +1,12 @@
+body {
+    background-image: url('../../views/imagenes/pulgar_arriba.jpg');
+    text-align: center;
+}
+
+body#body-dashboard {
+    text-align: center;
+}
+
 .container {
     max-width: 800px;
     margin: auto;
